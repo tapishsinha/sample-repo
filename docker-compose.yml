@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+  app:
+      image: tapishsinha/repo-sample-go:sample_go_proj_img_4
+      container_name: go_sample_container
+      ports:
+        - "8000:8080"
+      restart: always
