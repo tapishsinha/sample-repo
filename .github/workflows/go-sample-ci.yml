@@ -3,8 +3,6 @@ name: Go CI
 on:
   push:
     branches: [ main ]
-#  pull_request:
- #   branches: [ main ]
 
 jobs:
 
@@ -20,6 +18,11 @@ jobs:
 
     - name: Build
       run: go build -v ./...
-
-  #  - name: Test
-   #   run: go test -v ./...
+      
+    - name: Build and push docker image
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: tapishsinha/repo-sample-go
+        registry: docker.io
+   
+    
